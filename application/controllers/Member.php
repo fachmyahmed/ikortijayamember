@@ -106,11 +106,11 @@ class Member extends CI_Controller {
             'cb_pendidikan_sp' => $this->input->post('cb_pendidikan_sp'),
             'spc_year' => $this->input->post('spc_year'),
             'spc_year_grad' => $this->input->post('spc_year_grad'),
-            'cb_praktek_name' => $this->input->post('cb_praktek_name'),
+            'cb_alamat' => $this->input->post('cb_alamat'),
             'cb_praktek' => $this->input->post('cb_praktek'),
-            'cb_praktek2_name' => $this->input->post('cb_praktek2_name'),
+            'cb_alamat2' => $this->input->post('cb_alamat2'),
             'cb_praktek2' => $this->input->post('cb_praktek2'),
-            'cb_praktek3_name' => $this->input->post('cb_praktek3_name'),
+            'cb_alamat3' => $this->input->post('cb_alamat3'),
             'cb_praktek3' => $this->input->post('cb_praktek3'),
         );
         

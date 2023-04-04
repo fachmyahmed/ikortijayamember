@@ -314,14 +314,14 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek_name" value="<?php echo $datamember->cb_praktek_name;?>">
+                                                            <input type="text" placeholder="...." name="cb_praktek" value="<?php echo $datamember->cb_praktek;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek" value="<?php echo $datamember->cb_praktek;?>">
+                                                            <input type="text" placeholder="...." name="cb_alamat" value="<?php echo $datamember->cb_alamat;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -333,14 +333,14 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek2_name" value="<?php echo $datamember->cb_praktek2_name;?>">
+                                                            <input type="text" placeholder="...." name="cb_praktek2" value="<?php echo $datamember->cb_praktek2;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek2" value="<?php echo $datamember->cb_praktek2;?>">
+                                                            <input type="text" placeholder="...." name="cb_alamat2" value="<?php echo $datamember->cb_alamat2;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -352,14 +352,14 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek3_name" value="<?php echo $datamember->cb_praktek3_name;?>">
+                                                            <input type="text" placeholder="...." name="cb_praktek3" value="<?php echo $datamember->cb_praktek3;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek3" value="<?php echo $datamember->cb_praktek3;?>">
+                                                            <input type="text" placeholder="...." name="cb_alamat3" value="<?php echo $datamember->cb_alamat3;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>

@@ -1,0 +1,7 @@
+ALTER TABLE `kg_member`
+	CHANGE COLUMN `cb_praktek_name` `cb_alamat` TEXT NULL DEFAULT NULL AFTER `cb_praktek`,
+	CHANGE COLUMN `longitude` `latlong1` VARCHAR(255) NULL DEFAULT NULL AFTER `link_cb_praktek`,
+	CHANGE COLUMN `latitude` `latlong2` VARCHAR(255) NULL DEFAULT NULL AFTER `latlong1`,
+	ADD COLUMN `latlong3` VARCHAR(255) NULL DEFAULT NULL AFTER `latlong2`,
+	CHANGE COLUMN `cb_praktek2_name` `cb_alamat2` TEXT NULL DEFAULT NULL AFTER `cb_praktek2`,
+	CHANGE COLUMN `cb_praktek3_name` `cb_alamat3` TEXT NULL DEFAULT NULL AFTER `cb_praktek3`;
