@@ -40,6 +40,7 @@
                 <h1 class="h2">Profile</h1>
             </div>
             <div class="">
+                <h3 class="text-success"><?php echo $this->session->flashdata('message'); ?></h3>
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="accordion">

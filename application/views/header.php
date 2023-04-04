@@ -103,21 +103,32 @@
                                                                     <li>
                                                                         <?php
                                                                         $submenulink = '';
-                                                                        if ($submenu->is_content == 0) {
-                                                                            if (!isset($submenu->link)) {
-                                                                                $submenu->link = '';
-                                                                            } else {
-                                                                                $submenulink = $submenu->link;
+                                                                        if($submenu->is_content==0  ){
+                                                                            if(substr($submenu->link, 0, 4)=='www.' || substr($submenu->link, 0, 4)=='http'){
+                                                                                $submenulink=$submenu->link;
+                                                                            }else{
+                                                                                if (!isset($submenu->link)) {
+                                                                                    $submenu->link='';
+                                                                                } else {
+                                                                                    $submenulink=base_url().$submenu->link;
+                                                                                }
                                                                             }
-                                                                        } else {
+                                                                        }
+                                                                        elseif(substr($submenu->link, 0, 4)=='www.'){
+                                                                            $submenulink=$submenu->link;
+                                                                        }
+                                                                        elseif(substr($submenu->link, 0, 4)=='http'){
+                                                                            $submenulink=$submenu->link;
+                                                                        }
+                                                                        else {
                                                                             if (!isset($submenu->link)) {
                                                                                 $submenu->link = '';
                                                                             } else {
-                                                                                $submenulink = 'contents/pages/' . $submenu->link;
+                                                                                $submenulink = base_url() .'contents/pages/' . $submenu->link;
                                                                             }
                                                                         }
                                                                         ?>
-                                                                        <a href="<?php echo base_url() . $submenulink; ?>">
+                                                                        <a href="<?php echo $submenulink; ?>">
                                                                             <?php echo $submenu->title; ?>
                                                                         </a>
                                                                     </li>
@@ -135,7 +146,7 @@
                             <div class="header-nav-info-wrap header-nav-info-wrap-2 mr-3 col-md-4 col-sm-12 col-xs-12 searchinput">
                                 <form action="" class="d-none d-sm-block">
                                     <div class="input-group">
-                                        <div class="form-outline">
+                                        <div class="form-outline col-7 p-0 m-0">
                                             <input type="search" id="form1" class="form-control invis" placeholder="Search" />
                                         </div>
                                         <button type="submit" class="btn btn-warning findort-btn" href="">Cari Ortodontis</button>

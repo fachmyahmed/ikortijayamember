@@ -227,7 +227,7 @@ body {
     font-weight: 700;
     padding: 15px 0;
     border-bottom: solid 3px transparent;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .mainmenu ul li a:hover{
@@ -285,7 +285,7 @@ body {
 	margin-right: 0;
 	flex-basis: 200px;
 	padding: 0 0 0 30px;
-	min-height: 141px;
+	min-height: 105px;
 	display: flex;
 	align-items: center;
 	justify-content: left;

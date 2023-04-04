@@ -85,8 +85,6 @@ class Member extends CI_Controller {
             redirect(base_url('login'));
         }
 
-        print_r($this->input->post());
-
         $data = array(
             'fullname' => $this->input->post('fullname'),
             'fullname_title' => $this->input->post('fullname_title'),
@@ -154,6 +152,7 @@ class Member extends CI_Controller {
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('member', $data);
         // lastq();
+        $this->session->set_flashdata("message", "Update Profil Sukses");
 		redirect(site_url('member/profile'));
 
     }
