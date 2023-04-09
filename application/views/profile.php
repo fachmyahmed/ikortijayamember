@@ -314,7 +314,7 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek" value="<?php echo $datamember->cb_praktek;?>">
+                                                            <input id="cbpraktek" type="text" placeholder="...." name="cb_praktek" value="<?php echo $datamember->cb_praktek;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
@@ -322,6 +322,16 @@
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
                                                             <input type="text" placeholder="...." name="cb_alamat" value="<?php echo $datamember->cb_alamat;?>">
+                                                            <span class="icon"><i class="fal fa-map-marker"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <span class="icon">Latitude & Longitude Coordinate</span>
+                                                        <div class="form-group">
+                                                            <input id="latlong1" type="text" placeholder="...." name="latlong1" value="<?php echo $datamember->latlong1;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -333,7 +343,7 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek2" value="<?php echo $datamember->cb_praktek2;?>">
+                                                            <input id="cbpraktek2" type="text" placeholder="...." name="cb_praktek2" value="<?php echo $datamember->cb_praktek2;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
@@ -344,6 +354,16 @@
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-4">
+                                                        
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <span class="icon">Latitude & Longitude Coordinate</span>
+                                                            <div class="form-group">
+                                                                <input id="latlong2" type="text" placeholder="...." name="latlong2" value="<?php echo $datamember->latlong2;?>">
+                                                                <span class="icon"><i class="fal fa-map-marker"></i></span>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-12">
@@ -352,7 +372,7 @@
                                                     <div class="col-lg-4">
                                                         <span class="icon">Nama</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_praktek3" value="<?php echo $datamember->cb_praktek3;?>">
+                                                            <input id="cbpraktek3" type="text" placeholder="...." name="cb_praktek3" value="<?php echo $datamember->cb_praktek3;?>">
                                                             <span class="icon"><i class="fal fa-id-card"></i></span>
                                                         </div>
                                                     </div>
@@ -363,6 +383,16 @@
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-4">
+                                                        
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <span class="icon">Latitude & Longitude Coordinate</span>
+                                                            <div class="form-group">
+                                                                <input id="latlong3" type="text" placeholder="...." name="latlong3" value="<?php echo $datamember->latlong3;?>">
+                                                                <span class="icon"><i class="fal fa-map-marker"></i></span>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -544,3 +574,4 @@
         </main>
     </div>
 </div>
+

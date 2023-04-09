@@ -107,11 +107,14 @@ class Member extends CI_Controller {
             'spc_year' => $this->input->post('spc_year'),
             'spc_year_grad' => $this->input->post('spc_year_grad'),
             'cb_alamat' => $this->input->post('cb_alamat'),
+            'latlong1' => $this->input->post('latlong1'),
             'cb_praktek' => $this->input->post('cb_praktek'),
             'cb_alamat2' => $this->input->post('cb_alamat2'),
+            'latlong2' => $this->input->post('latlong2'),
             'cb_praktek2' => $this->input->post('cb_praktek2'),
             'cb_alamat3' => $this->input->post('cb_alamat3'),
             'cb_praktek3' => $this->input->post('cb_praktek3'),
+            'latlong3' => $this->input->post('latlong3'),
         );
         
         //File
