@@ -100,17 +100,21 @@
                 },
                 success: function(data) {
                   var latLongValue = data[0].latlong1;
+                  var cbAlamatValue = data[0].cb_alamat;
                     // do something with the data, like populate another input field
                     var inputFieldId = event.target.id;
                     console.log("Input field ID: " + inputFieldId);
                     if(inputFieldId=='cbpraktek'){
                       $("#latlong1").val(latLongValue);
+                      $("#cbalamat").val(cbAlamatValue);
                     } 
                     else if(inputFieldId=='cbpraktek2'){
                       $("#latlong2").val(latLongValue);
+                      $("#cbalamat2").val(cbAlamatValue);
                     } 
                     else if(inputFieldId=='cbpraktek3'){
                       $("#latlong3").val(latLongValue);
+                      $("#cbalamat3").val(cbAlamatValue);
                     }
                     
                 }

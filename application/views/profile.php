@@ -321,7 +321,7 @@
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_alamat" value="<?php echo $datamember->cb_alamat;?>">
+                                                            <input id="cbalamat" type="text" placeholder="...." name="cb_alamat" value="<?php echo $datamember->cb_alamat;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -350,7 +350,7 @@
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_alamat2" value="<?php echo $datamember->cb_alamat2;?>">
+                                                            <input id="cbalamat2" type="text" placeholder="...." name="cb_alamat2" value="<?php echo $datamember->cb_alamat2;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -379,7 +379,7 @@
                                                     <div class="col-lg-8">
                                                         <span class="icon">Alamat</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="cb_alamat3" value="<?php echo $datamember->cb_alamat3;?>">
+                                                            <input id="cbalamat3" type="text" placeholder="...." name="cb_alamat3" value="<?php echo $datamember->cb_alamat3;?>">
                                                             <span class="icon"><i class="fal fa-map-marker"></i></span>
                                                         </div>
                                                     </div>
@@ -429,7 +429,9 @@
                                                             <input type="file" placeholder="...." class="w-100" name="foto">
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
                                                         <span class="icon font-weight-bold">
                                                             Sertifikat Kompetensi
                                                         </span>
@@ -439,9 +441,11 @@
                                                                 $serkom_file = base_url() . 'uploads/serkom/'.$datamember->serkom_file;
                                                                ?>
                                                                <br>
-                                                               <a class="w-100" href="<?php echo $serkom_file; ?>" alt="">Download File</a>
+                                                               <a class="w-100"  target="_blank" href="<?php echo $serkom_file; ?>" alt="">Download File</a>
                                                                <?php 
-                                                            } 
+                                                            }else{
+                                                                echo "<br>";
+                                                            }
                                                             ?>
                                                             
                                                         </span>
@@ -449,7 +453,7 @@
                                                             <input type="file" placeholder="...." class="w-100" name="serkom_file">
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-4">
                                                         <span class="icon font-weight-bold">
                                                             Surat Tanda Registrasi
                                                         </span>
@@ -459,15 +463,19 @@
                                                                 $str_file = base_url() . 'uploads/serkom/'.$datamember->str_file;
                                                                ?>
                                                                <br>
-                                                               <a class="w-100" href="<?php echo $str_file; ?>" alt="">Download File</a>
+                                                               <a class="w-100"  target="_blank" href="<?php echo $str_file; ?>" alt="">Download File</a>
                                                                <?php 
-                                                            } 
+                                                            } else{
+                                                                echo "<br>";
+                                                            }
                                                             ?>
                                                         </span>
                                                         <div class="form-group">
                                                             <input type="file" placeholder="...." class="w-100" name="str_file">
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-lg-4">
                                                         <span class="icon font-weight-bold">
                                                             Ijazah Pendidikan Dokter Gigi
@@ -477,11 +485,11 @@
                                                             if (file_exists('uploads/ijazah/'.$datamember->file_univ_ijazah)) {
                                                                 $file_univ_ijazah = base_url() . 'uploads/ijazah/' . $datamember->file_univ_ijazah;
                                                             } else {
-                                                                $file_univ_ijazah = '';
+                                                                $file_univ_ijazah = '<br>';
                                                             }
                                                             ?>
                                                             <br>
-                                                            <a class="w-100" href="<?php echo $file_univ_ijazah; ?>" alt="">Download File</a>
+                                                            <a class="w-100"  target="_blank" href="<?php echo $file_univ_ijazah; ?>" alt="">Download File</a>
                                                         </span>
                                                         <div class="form-group">
                                                             <input type="file" placeholder="...." class="w-100" name="file_univ_ijazah">
@@ -496,11 +504,11 @@
                                                             if (file_exists('uploads/spc_ijazah/' . $datamember->file_spc_ijazah)) {
                                                                 $file_spc_ijazah = base_url() . 'uploads/spc_ijazah/' . $datamember->file_spc_ijazah;
                                                             } else {
-                                                                $file_spc_ijazah = '';
+                                                                $file_spc_ijazah = '<br>';
                                                             }
                                                             ?>
                                                             <br>
-                                                            <a class="w-100" href="<?php echo $file_univ_ijazah; ?>" alt="">Download File</a>
+                                                            <a class="w-100"  target="_blank" href="<?php echo $file_spc_ijazah; ?>" alt="">Download File</a>
                                                         </span>
                                                         <div class="form-group">
                                                             <input type="file" placeholder="...." class="w-100" name="file_spc_ijazah">

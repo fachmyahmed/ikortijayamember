@@ -35,17 +35,23 @@ class Ajax extends CI_Controller
 
             $this->db->select('cb_praktek');
             $this->db->like('cb_praktek', $searchTerm);
+            $this->db->where('cb_alamat is not null');
             $this->db->from('member');
+            $this->db->group_by("cb_praktek");
             $query1 = $this->db->get_compiled_select();
             
             $this->db->select('cb_praktek2 AS cb_praktek');
             $this->db->like('cb_praktek2', $searchTerm);
+            $this->db->where('cb_alamat2 is not null');
             $this->db->from('member');
+            $this->db->group_by("cb_praktek2");
             $query2 = $this->db->get_compiled_select();
 
             $this->db->select('cb_praktek3 AS cb_praktek');
             $this->db->like('cb_praktek3', $searchTerm);
+            $this->db->where('cb_alamat3 is not null');
             $this->db->from('member');
+            $this->db->group_by("cb_praktek3");
             $query3 = $this->db->get_compiled_select();
 
             $query = $this->db->query($query1 . ' UNION ' . $query2 . ' UNION ' . $query3);
@@ -57,12 +63,36 @@ class Ajax extends CI_Controller
         public function get_latlong1()
         {
             $searchTerm = $this->input->post('term');
-            $this->db->select('latlong1');
-            $this->db->where('cb_praktek', $searchTerm);
+            // $this->db->select('latlong1');
+            // $this->db->where('cb_praktek', $searchTerm);
+            // $this->db->group_by("cb_praktek");
+            // $query = $this->db->get('member');
+
+            $this->db->select('latlong1,cb_alamat');
+            $this->db->like('cb_praktek', $searchTerm);
+            $this->db->where('cb_alamat is not null');
+            $this->db->from('member');
             $this->db->group_by("cb_praktek");
-            $query = $this->db->get('member');
+            $query1 = $this->db->get_compiled_select();
+            
+            $this->db->select('latlong2 AS latlong1,cb_alamat2 as cb_alamat');
+            $this->db->like('cb_praktek2', $searchTerm);
+            $this->db->where('cb_alamat2 is not null');
+            $this->db->from('member');
+            $this->db->group_by("cb_praktek2");
+            $query2 = $this->db->get_compiled_select();
+
+            $this->db->select('latlong3 AS latlong1,cb_alamat3 as cb_alamat');
+            $this->db->like('cb_praktek3', $searchTerm);
+            $this->db->where('cb_alamat3 is not null');
+            $this->db->from('member');
+            $this->db->group_by("cb_praktek3");
+            $query3 = $this->db->get_compiled_select();
+
+            $query = $this->db->query($query1 . ' UNION ' . $query2 . ' UNION ' . $query3);
 
             $data =  $query->result_array();
+            // echo $this->db->last_query();
             echo json_encode($data);
         }
     }
