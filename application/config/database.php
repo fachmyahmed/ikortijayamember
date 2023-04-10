@@ -43,10 +43,14 @@ $active_record = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'ikortijaya.org',
+	'username' => 'ikortija_new',
+	'password' => 'IkortiJayaNew123!',
 	'database' => 'ikortija_new',
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'ikortija_new',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => 'kg_',
 	'pconnect' => FALSE,
