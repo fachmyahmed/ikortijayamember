@@ -102,7 +102,7 @@
                         <div class="col-xs-4 col-md-2 col-lg-2">
                             <div class="row p-0 w-0">
                                 <div class="col-sm-4 text-center">
-                                    <a href=""><i class="bi-instagram igico"></i></a>
+                                    <a href="https://www.instagram.com/spesialis.gigirapi"><i class="bi-instagram igico"></i></a>
                                 </div>
                                 <div class="col-sm-4 text-center">
                                     <a href=""><i class="bi-android2 androidico"></i></a>                
@@ -131,14 +131,20 @@
                             <div class="footer-widget">
                                 <div class="row">
                                     <div class="col-4 pr-10">
-                                        <a href=""><img class="logo-width" src="<?php echo base_url() ?>uploads/ikorti.png" alt=""></a>
+                                        <a href="https://www.ikorti-iao.com/"><img class="logo-width" src="<?php echo base_url() ?>uploads/ikorti.png" alt=""></a>
                                     </div>
                                     <div class="col-4 pr-10">
-                                        <a href=""><img class="logo-width" src="<?php echo base_url() ?>uploads/wfo-2.png" alt=""></a>
+                                        <a href="https://www.wfo.org"><img class="logo-width" src="<?php echo base_url() ?>uploads/wfo-2.png" alt=""></a>
                                     </div>
                                     <div class="col-4 pr-10">
-                                        <a href=""><img class="logo-width" src="<?php echo base_url() ?>uploads/pdgi-2.png" alt=""></a>
+                                        <a href="https://pdgi.or.id"><img class="logo-width" src="<?php echo base_url() ?>uploads/pdgi-2.png" alt=""></a>
                                     </div>
+                                    <a href="https://api.whatsapp.com/send?phone=6281298791284&text=Halo." class="floatbutton" target="_blank">
+                                        <i class="fa fa-whatsapp my-float"></i>
+                                    </a>
+                                    <a href="#" class="floatbutton2" target="_blank">
+                                        <i class="fa fa-comment-dots my-float"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +153,7 @@
                         <div class="col-lg-12">
                             <div class="copyright-text">
                                 <p>© 2023 Ikatan Ortodontis Indonesia Pengwil Jaya. All rights reserved.</p>
-                                <p>Copyright By@<span>Aa Amie</span> - 2023</p>
+                                <p>Copyright By@<span>Mz Team</span> - 2023</p>
                             </div>
                         </div>
                     </div>

@@ -25,7 +25,19 @@ class Member extends CI_Controller {
 		}
     }
 
+    public function register()
+    {
+        $lang = $this->session->userdata('lang');
+		$this->config->set_item('language', $lang);
+		$data = GetHeaderFooter();
+		$data['main_content'] = 'register';
+		if($this->session->userdata('member')) {
+			redirect(base_url());
+		} else {
+			$this->load->view('template',$data);
+		}
     
+    }
     public function profile()
     {
         $lang = $this->session->userdata('lang');

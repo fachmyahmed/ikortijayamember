@@ -1,6 +1,6 @@
 <!-- header start -->
 <section id="top-banner" aria-label="Member site and language selection" class="topheadermenu pb-1 pt-1">
-    <div class="flex justify-between align-center mx-auto px-5 md:px-8 lg:px-5 w-full max-w-full md:max-w-[1240px] h-11 xl:h-[60px]">
+    <div class="flex justify-between align-center mx-auto px-2 md:px-8 lg:px-5 w-full max-w-full md:max-w-[1240px] h-11 xl:h-[60px]">
         <nav class="member-navigation flex w-full sm:w-auto" aria-label="Navigate to Member Site">
             <div class="row p-0 m-0">
                 <div class="col-md-4 px-2 my-2">
@@ -20,6 +20,8 @@
                         &nbsp; | &nbsp;
                         <a class="text-danger" href="<?php echo base_url() . 'member/logout'; ?>">Logout</a>
                 </div>
+            <?php } else { ?>
+                <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/member/register'?>" target="_blank"> Mari Bergabung ></a>
             <?php } ?>
             </div>
     </div>
@@ -64,7 +66,7 @@
                                     <nav id="mobile-menu">
                                         <ul>
                                             <?php
-                                            $getmenutop = GetAll("menu_top", array("id_parents" => "where/" . "0", "is_publish" => "where/" . "1"));
+                                            $getmenutop = GetAll("menu_top_member", array("id_parents" => "where/" . "0", "is_publish" => "where/" . "1"));
                                             foreach ($getmenutop->result() as $menutop) { ?>
                                                 <li>
                                                     <?php
@@ -89,10 +91,10 @@
                                                     </a>
 
                                                     <?php if ($menutop->id_parents == '0') { ?>
-                                                        <?php $getsubmenu = GetAll("menu_top", array("id_parents" => "where/" . $menutop->id, "is_publish" => "where/" . "1")); ?>
+                                                        <?php $getsubmenu = GetAll("menu_top_member", array("id_parents" => "where/" . $menutop->id, "is_publish" => "where/" . "1")); ?>
                                                         <?php
                                                         $this->db->select('id');
-                                                        $this->db->from('menu_top');
+                                                        $this->db->from('menu_top_member');
                                                         $this->db->where('id_parents', $menutop->id);
                                                         $countchild = $this->db->count_all_results();
                                                         if ($countchild >= '0') {
@@ -146,7 +148,7 @@
                             <div class="header-nav-info-wrap header-nav-info-wrap-2 mr-3 col-md-4 col-sm-12 col-xs-12 searchinput">
                                 <form action="" class="d-none d-sm-block">
                                     <div class="input-group">
-                                        <div class="form-outline col-7 p-0 m-0">
+                                        <div class="form-outline col-7">
                                             <input type="search" id="form1" class="form-control invis" placeholder="Search" />
                                         </div>
                                         <button type="submit" class="btn btn-warning findort-btn" href="">Cari Ortodontis</button>
