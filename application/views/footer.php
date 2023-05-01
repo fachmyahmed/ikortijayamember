@@ -102,13 +102,13 @@
                         <div class="col-xs-4 col-md-2 col-lg-2">
                             <div class="row p-0 w-0">
                                 <div class="col-sm-4 text-center">
-                                    <a href="https://www.instagram.com/spesialis.gigirapi"><i class="bi-instagram igico"></i></a>
+                                    <a href="https://www.instagram.com/spesialis.gigirapi" target="_blank"><i class="bi-instagram igico"></i></a>
                                 </div>
                                 <div class="col-sm-4 text-center">
-                                    <a href=""><i class="bi-android2 androidico"></i></a>                
+                                    <a href="#"><i class="bi-android2 androidico"></i></a>                
                                 </div>
                                 <div class="col-sm-4 text-center">
-                                    <a href=""><i class="bi-apple appleico"></i></a>                
+                                    <a href="#"><i class="bi-apple appleico"></i></a>                
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                                 
                                 </div>
                                 <div class="col-sm-12 text-right pb-3 mb-3">
-                                    <a class="btn btn-regular orangebtn" href="">Cek Ortodontis-mu</i></a>      
+                                    <a class="btn btn-regular orangebtn" href="https://sertifikasi.pdgi.or.id/cek-dokter-gigi" target="_blank">Cek Ortodontis-mu</i></a>      
                                 </div>
                             </div>
                         </div>
@@ -131,13 +131,13 @@
                             <div class="footer-widget">
                                 <div class="row">
                                     <div class="col-4 pr-10">
-                                        <a href="https://www.ikorti-iao.com/"><img class="logo-width" src="<?php echo base_url() ?>uploads/ikorti.png" alt=""></a>
+                                        <a href="https://www.ikorti-iao.com/" target="_blank"><img class="logo-width" src="<?php echo base_url() ?>uploads/ikorti.png" alt=""></a>
                                     </div>
                                     <div class="col-4 pr-10">
-                                        <a href="https://www.wfo.org"><img class="logo-width" src="<?php echo base_url() ?>uploads/wfo-2.png" alt=""></a>
+                                        <a href="https://www.wfo.org" target="_blank"><img class="logo-width" src="<?php echo base_url() ?>uploads/wfo-2.png" alt=""></a>
                                     </div>
                                     <div class="col-4 pr-10">
-                                        <a href="https://pdgi.or.id"><img class="logo-width" src="<?php echo base_url() ?>uploads/pdgi-2.png" alt=""></a>
+                                        <a href="https://pdgi.or.id" target="_blank"><img class="logo-width" src="<?php echo base_url() ?>uploads/pdgi-2.png" alt=""></a>
                                     </div>
                                     <a href="https://api.whatsapp.com/send?phone=6281298791284&text=Halo." class="floatbutton" target="_blank">
                                         <i class="fa fa-whatsapp my-float"></i>
