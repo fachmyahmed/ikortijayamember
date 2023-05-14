@@ -8,26 +8,47 @@
                     if ($this->session->userdata('member')) {
                         $sess = (array)$this->session->userdata('member');
                         // print_r($sess);
-                        $firstname = $sess['firstname'];
-                        $middlename = $sess['middlename'];
-                        $lastname = $sess['lastname'];
+                        $fullname_title = $sess['fullname_title'];
+                        $fullname = $sess['fullname'];
 
                     ?>
 
-                        <span class="text-light">Welcome, <?php echo $firstname . ' ' . $middlename . ' ' . $lastname; ?></span>
+                        <span class="text-light">Welcome, <?php echo $fullname_title; ?></span>
                         &nbsp; | &nbsp;
                         <a class="text-warning" href="<?php echo base_url() . 'member/profile'; ?>">Profile</a>
                         &nbsp; | &nbsp;
                         <a class="text-danger" href="<?php echo base_url() . 'member/logout'; ?>">Logout</a>
                 </div>
             <?php } else { ?>
-                <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/member/register'?>" target="_blank"> Mari Bergabung ></a>
+                <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/member/register' ?>" target="_blank"> Mari Bergabung ></a>
             <?php } ?>
             </div>
     </div>
     <!-- <a class="btn btn-primary btn-member" href="<?php echo base_url() . 'member' ?>" target="_blank"> Member Site ></a> -->
     </nav>
     </div>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-none topheadermenu">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="profile-image.jpg" alt="Profile Image" class="profile-image"> John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
 </section>
 <header id="sticky-header" class="site-header-3">
     <a href="<?php echo base_url() ?>" class="site-logo site-logo-2 site-logo-3">
@@ -105,28 +126,25 @@
                                                                     <li>
                                                                         <?php
                                                                         $submenulink = '';
-                                                                        if($submenu->is_content==0  ){
-                                                                            if(substr($submenu->link, 0, 4)=='www.' || substr($submenu->link, 0, 4)=='http'){
-                                                                                $submenulink=$submenu->link;
-                                                                            }else{
+                                                                        if ($submenu->is_content == 0) {
+                                                                            if (substr($submenu->link, 0, 4) == 'www.' || substr($submenu->link, 0, 4) == 'http') {
+                                                                                $submenulink = $submenu->link;
+                                                                            } else {
                                                                                 if (!isset($submenu->link)) {
-                                                                                    $submenu->link='';
+                                                                                    $submenu->link = '';
                                                                                 } else {
-                                                                                    $submenulink=base_url().$submenu->link;
+                                                                                    $submenulink = base_url() . $submenu->link;
                                                                                 }
                                                                             }
-                                                                        }
-                                                                        elseif(substr($submenu->link, 0, 4)=='www.'){
-                                                                            $submenulink=$submenu->link;
-                                                                        }
-                                                                        elseif(substr($submenu->link, 0, 4)=='http'){
-                                                                            $submenulink=$submenu->link;
-                                                                        }
-                                                                        else {
+                                                                        } elseif (substr($submenu->link, 0, 4) == 'www.') {
+                                                                            $submenulink = $submenu->link;
+                                                                        } elseif (substr($submenu->link, 0, 4) == 'http') {
+                                                                            $submenulink = $submenu->link;
+                                                                        } else {
                                                                             if (!isset($submenu->link)) {
                                                                                 $submenu->link = '';
                                                                             } else {
-                                                                                $submenulink = base_url() .'contents/pages/' . $submenu->link;
+                                                                                $submenulink = base_url() . 'contents/pages/' . $submenu->link;
                                                                             }
                                                                         }
                                                                         ?>
