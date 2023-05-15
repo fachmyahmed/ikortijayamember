@@ -389,7 +389,7 @@
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <input type="hidden" id="map3_lat">
-                                                        <input type="hidden" id="map3_long">
+                                                        <input type="hidden" id="map3_lng">
                                                         <div id="map3" style="border:0; width: 100%; height: 250px"></div>
                                                     </div>
                                                     <div class="col-lg-4">
