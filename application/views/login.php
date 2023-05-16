@@ -2,10 +2,18 @@
     <section class="login-area pt-100 pb-100">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 offset-lg-2">
                     <div class="basic-login">
                         <h3 class="text-center mb-60">Login Member IKORTIJaya</h3>
-                        <form action="<?php echo base_url().'member/process_login' ?>" method="POST">
+                        <form action="<?php echo base_url() . 'member/process_login' ?>" method="POST">
+                            <?php
+                            $message = $this->session->flashdata('message');
+                            if (isset($message)) {
+                                echo '<div class="alert alert-success">' . $message . '</div>';
+                                $this->session->unset_userdata('message');
+                            }
+                            ?>
                             <label for="email">Email <span>**</span></label>
                             <input name="email" id="email" type="text" placeholder="Enter Email address..." />
                             <label for="pass">Password <span>**</span></label>

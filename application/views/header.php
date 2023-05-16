@@ -1,6 +1,6 @@
 <!-- header start -->
 <section id="top-banner" aria-label="Member site and language selection" class="topheadermenu pb-1 pt-1">
-    <div class="flex justify-between align-center mx-auto px-2 md:px-8 lg:px-5 w-full max-w-full md:max-w-[1240px] h-11 xl:h-[60px]">
+    <!-- <div class="flex justify-between align-center mx-auto px-2 md:px-8 lg:px-5 w-full max-w-full md:max-w-[1240px] h-11 xl:h-[60px]">
         <nav class="member-navigation flex w-full sm:w-auto" aria-label="Navigate to Member Site">
             <div class="row p-0 m-0">
                 <div class="col-md-4 px-2 my-2">
@@ -23,7 +23,54 @@
                 <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/member/register' ?>" target="_blank"> Mari Bergabung ></a>
             <?php } ?>
             </div>
-    </div>
+    </div> -->
+    <nav class="navbar navbar-expand navbar-dark bg-none pb-1 pt-1">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown">
+							<?php
+							if (!empty($datamember->foto)) {
+								$foto = base_url() . '/uploads/foto/' . $datamember->foto;
+							} else {
+								$foto = base_url() . '/uploads/foto/default.png';
+							}
+							?>
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<img src="<?php echo $foto; ?>" alt="Profile Image" class="profile-image" style="width: 40px; border: 2px grey solid; border-radius: 2rem; object-fit: cover;height: 40px;">
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Welcome, 
+                                <?php 
+                                if (!empty($datamember->fullname_title)) {
+                                    echo "<br>".$datamember->fullname_title; 
+                                } else {
+                                    echo "Guest";
+                                }
+                                ?></a>
+								
+                                <?php if (!empty($datamember)) { ?>
+                                    <div class="dropdown-divider"></div>
+								    <a class="dropdown-item" href="<?php echo base_url('member/profile') ?>">Profile</a>
+                                <?php }?>
+								
+                                <?php if (!empty($datamember)) { ?>
+                                    <div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="<?php echo base_url('member/logout') ?>">Logout</a>
+                                <?php } else { ?>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<?php echo base_url('member/register') ?>">Register</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<?php echo base_url('member') ?>">Login</a>
+                                <?php  } ?>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
     <!-- <a class="btn btn-primary btn-member" href="<?php echo base_url() . 'member' ?>" target="_blank"> Member Site ></a> -->
     </nav>
     </div>

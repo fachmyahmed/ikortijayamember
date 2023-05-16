@@ -10,6 +10,11 @@ body {
 	vertical-align: text-bottom;
   }
   
+.error{
+	color: #fe4536!important;
+}
+
+
 /* floatin button chat */
 .floatbutton{
 	position:fixed;

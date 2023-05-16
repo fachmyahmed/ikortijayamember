@@ -10,6 +10,14 @@ class Member_model extends CI_Model {
         $query = $this->db->get();
         return $query->row();
     }
+
+    public function get_email($email) {
+        $this->db->select('*');
+        $this->db->from('member');
+        $this->db->where('email', $email);
+        $query = $this->db->get();
+        return $query->row();
+    }
     
 }
 

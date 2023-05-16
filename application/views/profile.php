@@ -21,7 +21,16 @@
                             </span>
                             <span class="idd">No. #<?php echo $userdata['id'] ?></span>
                             <span class="idd">No induk #</span>
-                            <span class="idd">Member Card</span>
+                            <span class="idd">Status pembayaran iuran:
+                                <?php     
+                                    $status=$datamember->status;
+                                    if($status==0){
+                                        echo "<a href='#' class='btn btn-danger'>BELUM LUNAS</a>";
+                                    } else {
+                                        echo "<a href='#' class='btn btn-success'>LUNAS</a>";
+                                    }
+                                ?>
+                            </span>
                             <!-- <div class=" d-flex mt-2">
                                 <button class="btn1 btn-dark">Edit Profile</button>
                             </div>

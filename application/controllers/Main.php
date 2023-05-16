@@ -16,6 +16,8 @@ class Main extends CI_Controller {
 		$lang = $this->session->userdata('lang');
 		$this->config->set_item('language', $lang);
 		$data = GetHeaderFooter();
+		$data['main_content'] = 'main';
+
 		if($this->session->userdata('member')) {
             $data['userdata'] = (array)$this->session->userdata('member');
             $var = $data['userdata'];
@@ -42,8 +44,8 @@ class Main extends CI_Controller {
 		$data['blog'] = $this->db->get(); 
 
 		if ($this->session->userdata('member')) {
-			//$this->load->view('template',$data);
-			$this->load->view('main',$data);
+			$this->load->view('template',$data);
+			// $this->load->view('main',$data);
 		} else {
 			redirect(base_url().'member');
 		}		
