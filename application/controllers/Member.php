@@ -69,7 +69,7 @@ class Member extends CI_Controller
             $password = $this->input->post('password');
             $captcha = $this->input->post('captcha');
 
-             $data = array(
+            $data = array(
                 'email' => $email,
                 'fullname' => $fullname,
                 'fullname_title' => $fullname_title,
@@ -77,9 +77,9 @@ class Member extends CI_Controller
                 'gender' => $gender,
                 'cb_phone' => $cb_phone,
                 'password' => md5($password)
-             );
+            );
 
-            if($this->captcha_check($captcha)==FALSE){
+            if ($this->captcha_check($captcha) == FALSE) {
                 $this->session->set_flashdata("message", "Captcha salah");
                 redirect(base_url('member/register'));
             }
@@ -91,8 +91,8 @@ class Member extends CI_Controller
             $this->db->like('email', $email);
             $this->db->from('member');
             $emailexist = $this->db->count_all_results();
-        
-            if($emailexist<1){
+
+            if ($emailexist < 1) {
                 $this->db->insert('member', $data);
                 $this->session->set_flashdata("message", "Selamat, anda telah terdaftar. Silakan login menggunakan akun anda");
                 redirect(base_url('member'));
@@ -100,7 +100,6 @@ class Member extends CI_Controller
                 $this->session->set_flashdata("message", "Email telah terdaftar");
                 redirect(base_url('member/register'));
             }
-
         }
     }
 
@@ -132,7 +131,7 @@ class Member extends CI_Controller
                 'border' => array(0, 0, 0),
                 'text' => array(0, 0, 0),
                 'grid' => array(255, 255, 255)
-        )
+            )
         );
 
         $captcha = create_captcha($config);

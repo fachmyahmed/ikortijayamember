@@ -112,7 +112,7 @@
 		</div>
 		<div class="border-home row p-0 m-0">
 			<div class="col-12 text-center py-3">
-				<video width="320" height="100" autoplay loop>
+				<video width="320" height="100" playsinline autoplay muted loop>
 					<source src="<?php echo base_url(); ?>uploads/home/File Elemen Square.mp4" type="video/mp4">
 					</source>
 				</video>
@@ -123,12 +123,17 @@
 		<div class="row p-0 m-0">
 			<div class="col-1 p-0"></div>
 			<div class="col-10 p-0">
-				<video width="100%" autoplay loop>
+				<video width="100%" playsinline autoplay muted loop>
 					<source src="<?php echo base_url(); ?>uploads/home/JOM 2023.mp4" type="video/mp4">
 					</source>
 				</video>
 				<div class="col-12 text-left blok-reg" style="padding:0px !important;">
-					<a href="https://ikortijaya.org/member" class="reg"><i>Register Now</i></a>
+				<?php if (!empty($datamember)) { ?>
+					<a href="<?php echo base_url('events/register/386'); ?>" class="reg"><i>Register Now</i></a>
+				<?php } else { ?>
+					<a href="<?php echo base_url('member'); ?>" class="reg"><i>Register Now</i></a>
+					<?php } ?>
+
 				</div>
 			</div>
 			<div class="col-1 p-0"></div>
@@ -140,7 +145,7 @@
 			<div class="col-10">
 				<div class="row">
 					<div class="col-2 text-right" style="padding:0px !important;">
-						<video width="50%" autoplay loop>
+						<video width="50%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Check Back Soon.mp4" type="video/mp4">
 							</source>
 						</video>
@@ -149,7 +154,7 @@
 						<h1 class="font-weight-bold label-section-merah">Maju Bersama IKORTI Pengwil Jaya</h1>
 					</div>
 					<div class="col-2 text-left" style="padding:0px !important;">
-						<video width="50%" autoplay loop>
+						<video width="50%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Arrow.mp4" type="video/mp4">
 							</source>
 						</video>
@@ -166,7 +171,7 @@
 				<div class="row">
 					<div class="col-1 p-0"></div>
 					<div class="col-10 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Aplikasi Coming Soon.mp4" type="video/mp4">
 							</source>
 						</video>
@@ -184,7 +189,7 @@
 			<div class="col-8">
 				<div class="row">
 					<div class="col-4 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Informasi.mp4" type="video/mp4">
 							</source>
 						</video>
@@ -192,7 +197,7 @@
 					</div>
 					<div class="col-4 text-center" style="padding:0px !important;">
 						<a href="https://ikortijaya.org/member/member/profile">
-							<video width="100%" autoplay loop>
+							<video width="100%" playsinline autoplay muted loop>
 								<source src="<?php echo base_url(); ?>uploads/home/Personal Akun.mp4" type="video/mp4">
 								</source>
 							</video>
@@ -200,7 +205,7 @@
 						</a>
 					</div>
 					<div class="col-4 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Kegiatan Seminar.mp4" type="video/mp4">
 							</source>
 						</video>
@@ -218,25 +223,25 @@
 			<div class="col-8">
 				<div class="row">
 					<div class="col-6 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Cara Memilih Ortodontis.mp4" type="video/mp4">
 							</source>
 						</video>
 					</div>
 					<div class="col-6 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Kebersihan Gigi dan Mulut Ortodonti.mp4" type="video/mp4">
 							</source>
 						</video>
 					</div>
 					<div class="col-6 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Pilihan Perawatan Ortodonti.mp4" type="video/mp4">
 							</source>
 						</video>
 					</div>
 					<div class="col-6 text-center" style="padding:0px !important;">
-						<video width="100%" autoplay loop>
+						<video width="100%" playsinline autoplay muted loop>
 							<source src="<?php echo base_url(); ?>uploads/home/Yuk ke Ortodontis.mp4" type="video/mp4">
 							</source>
 						</video>
