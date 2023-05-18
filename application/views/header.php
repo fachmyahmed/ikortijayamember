@@ -154,11 +154,18 @@
                                                         }
                                                     }
 
+                                                    if($menutop->is_active==1){
+
                                                     ?>
                                                     <a href="<?php echo base_url() . $menutoplink; ?>">
                                                         <?php echo $menutop->title; ?>
                                                     </a>
-
+                                                    <?php } else { ?>
+                                                     
+                                                        <a class='text-secondary' style="pointer-events: none;color: #b7b7b7 !important;">
+                                                            <?php echo $menutop->title; ?>
+                                                        </a>
+                                                    <?php } ?>
                                                     <?php if ($menutop->id_parents == '0') { ?>
                                                         <?php $getsubmenu = GetAll("menu_top_member", array("id_parents" => "where/" . $menutop->id, "is_publish" => "where/" . "1")); ?>
                                                         <?php
@@ -195,10 +202,18 @@
                                                                                 $submenulink = base_url() . 'contents/pages/' . $submenu->link;
                                                                             }
                                                                         }
+
+                                                                        if($submenu->is_active == 1){
+
                                                                         ?>
                                                                         <a href="<?php echo $submenulink; ?>">
                                                                             <?php echo $submenu->title; ?>
                                                                         </a>
+                                                                        <?php } else { ?>
+                                                                            <a style="pointer-events: none;color: #b7b7b7 !important;" >
+                                                                            <?php echo $submenu->title; ?>
+                                                                        </a>
+                                                                        <?php } ?>
                                                                     </li>
                                                                 <?php } ?>
 

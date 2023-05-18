@@ -19,10 +19,10 @@
                         ?>
                         <input name="id_event" id="id_event" type="hidden" value="<?php echo $event_id; ?>" />
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <img src="<?php echo base_url() . '../ikortijaya/uploads/' . $event_detail->image; ?>">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <video class="w-100" src="<?php echo base_url() . '../ikortijaya/uploads/' . $event_detail->video; ?>" playsinline autoplay muted loop>
                             </div>
                         </div>
