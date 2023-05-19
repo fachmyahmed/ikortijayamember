@@ -7,7 +7,7 @@
                 <div class="basic-login">
                     <h3 class="text-center">Register Event</h3>
                     <h3 class="text-center mb-60"><?php echo $event_detail->title; ?></h3>
-                    <form id="registerform" action="<?php echo base_url() . 'events/register_process' ?>" method="POST" enctype="multipart/form-data">
+                    <form id="registerform" action="<?php echo BASE_URL_FRONT. 'events/register_process' ?>" method="POST" enctype="multipart/form-data">
                         <?php
                         $message = $this->session->flashdata('message');
                         if (isset($message)) {
@@ -20,10 +20,10 @@
                         <input name="id_event" id="id_event" type="hidden" value="<?php echo $event_id; ?>" />
                         <div class="row">
                             <div class="col-md-12">
-                                <img src="<?php echo base_url() . '../ikortijaya/uploads/' . $event_detail->image; ?>">
+                                <img src="<?php echo BASE_URL_FRONT.'uploads/' . $event_detail->image; ?>">
                             </div>
                             <div class="col-md-12">
-                                <video class="w-100" src="<?php echo base_url() . '../ikortijaya/uploads/' . $event_detail->video; ?>" playsinline autoplay muted loop>
+                                <video class="w-100" src="<?php echo BASE_URL_FRONT. 'uploads/' . $event_detail->video; ?>" playsinline autoplay muted loop>
                             </div>
                         </div>
                         <div class="row">
