@@ -87,4 +87,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 // set frontend url
-define('BASE_URL_FRONT', 'https://ikortijaya.org/new/');
+define('BASE_URL_FRONT', 'https://ikortijaya.org/');

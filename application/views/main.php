@@ -131,7 +131,7 @@
 				<?php if (!empty($datamember)) { ?>
 					<a href="<?php echo base_url('events/register/386'); ?>" class="reg"><i>Register Now</i></a>
 				<?php } else { ?>
-					<a href="<?php echo base_url('member'); ?>" class="reg"><i>Register Now</i></a>
+					<a href="<?php echo base_url('auth'); ?>" class="reg"><i>Register Now</i></a>
 					<?php } ?>
 
 				</div>

@@ -15,12 +15,12 @@
 
                         <span class="text-light">Welcome, <?php echo $fullname_title; ?></span>
                         &nbsp; | &nbsp;
-                        <a class="text-warning" href="<?php echo base_url() . 'member/profile'; ?>">Profile</a>
+                        <a class="text-warning" href="<?php echo base_url() . 'auth/profile'; ?>">Profile</a>
                         &nbsp; | &nbsp;
-                        <a class="text-danger" href="<?php echo base_url() . 'member/logout'; ?>">Logout</a>
+                        <a class="text-danger" href="<?php echo base_url() . 'auth/logout'; ?>">Logout</a>
                 </div>
             <?php } else { ?>
-                <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/member/register' ?>" target="_blank"> Mari Bergabung ></a>
+                <a class="btn btn-primary btn-member" href="<?php echo 'https://ikortijaya.org/member/auth/register' ?>" target="_blank"> Mari Bergabung ></a>
             <?php } ?>
             </div>
     </div> -->
@@ -55,17 +55,17 @@
 								
                                 <?php if (!empty($datamember)) { ?>
                                     <div class="dropdown-divider"></div>
-								    <a class="dropdown-item" href="<?php echo base_url('member/profile') ?>">Profile</a>
+								    <a class="dropdown-item" href="<?php echo base_url('auth/profile') ?>">Profile</a>
                                 <?php }?>
 								
                                 <?php if (!empty($datamember)) { ?>
                                     <div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="<?php echo base_url('member/logout') ?>">Logout</a>
+								<a class="dropdown-item" href="<?php echo base_url('auth/logout') ?>">Logout</a>
                                 <?php } else { ?>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?php echo base_url('member/register') ?>">Register</a>
+                                    <a class="dropdown-item" href="<?php echo base_url('auth/register') ?>">Register</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?php echo base_url('member') ?>">Login</a>
+                                    <a class="dropdown-item" href="<?php echo base_url('auth') ?>">Login</a>
                                 <?php  } ?>
 							</div>
 						</li>

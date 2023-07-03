@@ -75,10 +75,13 @@
 
     jQuery(document).ready(function() {
       var $j = jQuery.noConflict();
-      $j(".datepicker-here").datepicker({
+      $j(".hasdatepicker").datepicker({
         autoclose: true,
-        format: "yyyy-mm-dd"
+        dateFormat: "dd-mm-yy"
       });
+
+
+      
 
       $j("#registerform").validate({
         rules: {
@@ -95,7 +98,34 @@
             npa: {
                 required: true
             },
-            cb_phone: {
+            place_birth: {
+                required: true
+            },
+            date_birth: {
+                required: true
+            },
+            hone: {
+                required: true
+            },
+            cb_pendidikan_s1: {
+                required: true
+            },
+            university_year: {
+                required: true
+            },
+            university_year_grad: {
+                required: true
+            },
+            cb_pendidikan_sp: {
+                required: true
+            },
+            spc_year: {
+                required: true
+            },
+            spc_year_grad: {
+                required: true
+            },
+            foto: {
                 required: true
             },
             password: {

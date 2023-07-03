@@ -290,9 +290,8 @@
 	$('select').niceSelect();
 
 	// Access instance of plugin
-	$('.datepicker-here').datepicker({
-		dateFormat: 'dd/mm/yy' 
-	});
+	$('.datepicker-here').data('datepicker');
+
 
 	// offcanvas menu
 	$(".hamburger-menu-trigger").on("click", function () {
@@ -425,9 +424,5 @@
 	if ($('#contact-map').length != 0) {
 		google.maps.event.addDomListener(window, 'load', basicmap);
 	}
-
-
-
-
 
 })(jQuery);

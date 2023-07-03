@@ -6,7 +6,7 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="basic-login">
                         <h3 class="text-center mb-60">Login Member IKORTIJaya</h3>
-                        <form action="<?php echo base_url() . 'member/process_login' ?>" method="POST">
+                        <form action="<?php echo base_url() . 'auth/process_login' ?>" method="POST">
                             <?php
                             $message = $this->session->flashdata('message');
                             if (isset($message)) {
@@ -24,7 +24,7 @@
                                     <label for="remember">Remember me!</label>
                                 </span>
                                 <span class="forgot-login f-right">
-                                    <a href="#">Lost your password?</a>
+                                    <a href="<?php echo base_url("auth/forgotpass"); ?>">Lupa Password?</a>
                                 </span>
                             </div>
                             <div class="py-2 my-2 text-center w-100">
@@ -32,7 +32,7 @@
                             </div>
                             <button class="site-btn red w-100">Login</button>
                             <div class="or-divide"><span>or</span></div>
-                            <a href="<?php echo base_url("member/register"); ?>" class="site-btn w-100 text-center">Register</a>
+                            <a href="<?php echo base_url("auth/register"); ?>" class="site-btn w-100 text-center">Register</a>
                         </form>
                     </div>
                 </div>

@@ -82,7 +82,7 @@ if (!function_exists('GetHeaderFooterProfile')){
 		
 		$data['header'] 	= 'headerprofile';
 		$data['menu'] 		= 'menu';
-		$data['footer'] 	= 'footerprofile';
+		$data['footer'] 	= 'headerprofile';
 		$data['sidebar'] 	= 'sidebar';
 		// $data['rFooter']	= get_data('tbl_contact',array('where_array'=>array('id'=>1)))->row();
 		

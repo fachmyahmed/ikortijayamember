@@ -139,12 +139,12 @@
                                     <div class="col-4 pr-10">
                                         <a href="https://pdgi.or.id" target="_blank"><img class="logo-width" src="<?php echo base_url() ?>uploads/pdgi-2.png" alt=""></a>
                                     </div>
-                                    <a href="https://api.whatsapp.com/send?phone=6281298791284&text=Halo." class="floatbutton" target="_blank">
+                                    <!-- <a href="https://api.whatsapp.com/send?phone=6281298791284&text=Halo." class="floatbutton" target="_blank">
                                         <i class="fa fa-whatsapp my-float"></i>
                                     </a>
                                     <a href="#" class="floatbutton2" target="_blank">
                                         <i class="fa fa-comment-dots my-float"></i>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>

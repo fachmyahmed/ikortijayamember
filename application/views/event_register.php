@@ -7,11 +7,11 @@
                 <div class="basic-login">
                     <h3 class="text-center">Register Event</h3>
                     <h3 class="text-center mb-60"><?php echo $event_detail->title; ?></h3>
-                    <form id="registerform" action="<?php echo BASE_URL_FRONT. 'events/register_process' ?>" method="POST" enctype="multipart/form-data">
+                    <form id="registerform" action="<?php echo BASE_URL().'events/register_process' ?>" method="POST" enctype="multipart/form-data">
                         <?php
                         $message = $this->session->flashdata('message');
                         if (isset($message)) {
-                            echo '<div class="alert alert-info">' . $message . '</div>';
+                            echo '<div class="alert alert-success" style="font-size: 1.2rem;">' . $message . '</div>';
                             $this->session->unset_userdata('message');
                         }
                         // echo  $this->session->userdata('captcha_word');
@@ -60,24 +60,22 @@
                                 <input type="file" name="payment_proof" style="padding-top: 16px;">
                             </div>
                             <div class="col-md-6">
-                                <label for="tgl_trf">Tanggal Transfer<span></span></label>
-                                <input name="tgl_trf" type="text" class="has-icon datepicker-here " data-language="en" placeholder="Select Date" id="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
                                 <label for="nama_bank">Nama Bank <span></span></label>
                                 <input name="nama_bank" id="nama_bank" type="text" placeholder="..." />
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <label for="tgl_trf">Tanggal Transfer<span></span></label>
+                                <input name="tgl_trf" type="text" class="has-icon datepicker-here " data-language="en" placeholder="Select Date" id="">
+                            </div> -->
+                        </div>
+                        <div class="row">
+                        <div class="col-md-6">
+                                <label for="nomor_rek">Nomor Rekening <span></span></label>
+                                <input name="nomor_rek" id="nomor_rek" type="text" placeholder="..." />
                             </div>
                             <div class="col-md-6">
                                 <label for="pemilik_rek">Nama Pemilik Rekening <span></span></label>
                                 <input name="pemilik_rek" id="pemilik_rek" type="text" placeholder="..." />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="nomor_rek">Nomor Rekening <span></span></label>
-                                <input name="nomor_rek" id="nomor_rek" type="text" placeholder="..." />
                             </div>
                         </div>
                         <div class="row">
@@ -98,9 +96,18 @@
                             <span class="text-danger"> <?php echo $this->session->flashdata('error_msg'); ?></span>
                         </div>
                         <div class="row">
+                            <?php if($status_registrant){
+                                
+                            ?>
+                                <div class="col-lg-8 offset-lg-2">
+                                <button class="btn btn-success w-100" disabled>You Are Registered at this Event</button>
+                            </div>    
+                            <?php } else { ?>
                             <div class="col-lg-8 offset-lg-2">
                                 <button class="site-btn red w-100">Register</button>
                             </div>
+                            <?php } ?>
+
                         </div>
                     </form>
                 </div>

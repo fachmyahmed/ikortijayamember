@@ -36,8 +36,12 @@ class Events extends CI_Controller
 			$data['event_id'] = $event_id;
 			$data['main_content'] = 'event_register';
 			$data['event_detail'] = GetAll("event", array("id" => "where/" . $event_id))->result()[0];
+			
 			if ($this->session->userdata('member')) {
 				$data['userdata'] = (array)$this->session->userdata('member');
+				$var = $data['userdata'];
+				$data['status_registrant'] = GetAll("event_register", array("id_event" => "where/" . $event_id, "id_member" => "where/" . $var['id']))->result()[0];
+
 				$this->load->view('template', $data);
 			} else {
 				redirect(base_url());
@@ -46,6 +50,7 @@ class Events extends CI_Controller
 			redirect(base_url());
 		}
 	}
+
 
 	public function test_mail(){
 		$configmail = [
@@ -104,7 +109,7 @@ class Events extends CI_Controller
 		$npa = $this->input->post('npa');
 		$cb_phone = $this->input->post('cb_phone');
 		$captcha = $this->input->post('captcha');
-		$tgl_trf = $this->input->post('tgl_trf');
+		// $tgl_trf = $this->input->post('tgl_trf');
 		$nama_bank = $this->input->post('nama_bank');
 		$pemilik_rek = $this->input->post('pemilik_rek');
 		$nomor_rek = $this->input->post('nomor_rek');
@@ -116,7 +121,7 @@ class Events extends CI_Controller
 			'fullname' => $fullname,
 			'npa' => $npa,
 			'cb_phone' => $cb_phone,
-			'tgl_trf' => $tgl_trf,
+			// 'tgl_trf' => $tgl_trf,
 			'nama_bank' => $nama_bank,
 			'pemilik_rek' => $pemilik_rek,
 			'nomor_rek' => $nomor_rek,
@@ -146,7 +151,7 @@ class Events extends CI_Controller
 
 			} else {
 				// File size exceeds the limit, handle the error
-				$this->session->set_flashdata('message', 'ukuran file tidak boleh melebihi 5MB');
+				$this->session->set_flashdata('message', 'ukuran file tidak boleh melebihi 5MB'.$_FILES[$key]['size']);
 				redirect(base_url('events/register/'.$id_event));
 			}
 
@@ -173,7 +178,7 @@ class Events extends CI_Controller
 
 		if ($emailexist < 1) {
 			$this->db->insert('event_register', $data);
-			$this->session->set_flashdata("message", "Selamat, anda telah terdaftar pada event ini. Silakan cek email anda atau kunjungi profile untuk mengetahui status pendaftaran anda.");
+			$this->session->set_flashdata("message", "Anda telah terdaftar pada event ini. Silakan cek email anda atau kunjungi profile untuk mengetahui status pendaftaran anda.");
 
 			// send mail
 			$configmail = [
@@ -191,7 +196,7 @@ class Events extends CI_Controller
 			];
 			$this->load->library('email',$configmail);
 
-			$this->email->from('events@ikortijaya.org', 'Event Registration');
+			$this->email->from('admin@ikortijaya.org', 'Event Registration');
 			$this->email->to($email);
 	
 			// Fetch event detail
@@ -200,10 +205,33 @@ class Events extends CI_Controller
 			$this->email->subject('Registration '.$event->title);
 			$message = 'Hi, '.$var['fullname_title'];
 			$message .= '<br>';
-			$message .= 'Anda telah mendaftar pada event'.$event->title;
+			$message .= 'We have received your registration for Jakarta Orthodontic Meeting 2023 (JOM 2023), "'.$event->title.'"';
 			$message .= '<br>';
 			$message .= '<br>';
-			$message .= 'Status pembayaran anda <br><b>'.$statuspembayaran.'</b>';
+			$message .= '<br>';
+			$message .= 'At the moment, your payment is being checked.';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= 'We will send out a confirmation email once your registration has been processed and payment status has been verified.';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= 'We look forward to meeting you at JOM 2023.';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= 'Should you have questions or need further assistance, please do not hesitate to contact:';
+			$message .= '<br>';
+			$message .= 'Dr. Marini Mihardjanti (081319031983)';
+			$message .= '<br>';
+			$message .= 'Dr. Citra Lestari (085921536980)';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= '<br>';
+			$message .= 'Best regards,';
+			$message .= '<br>';
+			$message .= 'JOM 2023 Organizing Committee';
+
 			$this->email->message($message);
 
 			if ($this->email->send()) {
@@ -240,8 +268,8 @@ class Events extends CI_Controller
 			// 'font_path'     => './path/to/font.ttf',
 			'img_width'     => '150',
 			'img_height'    => '50',
-			'word_length'   => 6,
-			'font_size'     => 16,
+			'word_length'   => 4,
+			'font_size'     => 32,
 			'expiration'    => 3600,
 			'colors'        => array(
 				'background' => array(255, 255, 255),

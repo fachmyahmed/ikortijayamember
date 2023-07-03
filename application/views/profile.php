@@ -21,23 +21,60 @@
                             </span>
                             <span class="idd">No. #<?php echo $userdata['id'] ?></span>
                             <span class="idd">No induk #</span>
-                            <span class="idd">Status pembayaran iuran:
-                                <?php     
-                                    $status=$datamember->status;
-                                    if($status==0){
-                                        echo "<a href='#' class='btn btn-danger'>BELUM LUNAS</a>";
-                                    } else {
-                                        echo "<a href='#' class='btn btn-success'>LUNAS</a>";
-                                    }
+                            <span class="idd">Status pembayaran iuran:<br>
+                                <?php
+                                $status = $datamember->status;
+                                $tagihan = $datamember->tagihan;
+                                if ($status == 0) {
+                                    echo "<a href='#' class='btn btn-danger'>BELUM LUNAS</a>";
+                                } else {
+                                    echo "<a href='#' class='btn btn-success'>LUNAS</a>";
+                                }
                                 ?>
                             </span>
-                            <!-- <div class=" d-flex mt-2">
-                                <button class="btn1 btn-dark">Edit Profile</button>
-                            </div>
-                            <div class="text mt-3">
-                                <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span>
-                            </div>
-                            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div> -->
+                            <span class="idd">Periode Hingga 2025</span>
+                            <?php
+                            if ($tagihan == 0) {
+                            } else { ?>
+                                <span class="idd">Total Tagihan:
+                                    <br>
+                                    <?php echo rupiah($tagihan); ?>
+                                </span>
+
+                            <?php } ?>
+
+                            <?php
+
+                            $this->db->like('id_member', $userdata['id']);
+                            $this->db->from('kg_event_register');
+                            $jmlevent = $this->db->count_all_results();
+
+                            $event = $this->db->get_where('kg_event_register', array('id_member' => $userdata['id']));
+                            // print_r($event->result());
+                            ?>
+                            <br><br>
+                            <?php if ($jmlevent > 0) {
+                            ?>
+                                <span class="idd">Ongoing Event:</span>
+                                <?php $i = 1; ?>
+                                <?php foreach ($event->result() as $events) { ?>
+                                    <hr>
+                                    <span class="idd"><b><?php echo GetValue('title', 'kg_event', array('id' => $events->id_event)); ?></b></span><br>
+                                    <span class="idd">Status Registrasi:</span><br>
+                                    <span class="idd">
+                                        <?php
+                                        if ($events->status == 0) {
+                                            $statsss = "<a href='#' class='btn btn-danger'>Menunggu Pembayaran</a>";
+                                        } else if ($events->status == 1) {
+                                            $statsss = "<a href='#' class='btn btn-warning'>Menunggu Verifikasi Pembayaran</a>";
+                                        } else if ($events->status == 2) {
+                                            $statsss = "<a href='#' class='btn btn-success'>Pembayaran Terverifikasi</a>";
+                                        }
+                                        echo $statsss;
+                                        ?></span><br><br>
+                                <?php } ?>
+
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -53,7 +90,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="accordion">
-                            <form method="POST" action="<?php echo base_url() . 'member/update_profile' ?>" enctype="multipart/form-data">
+                            <form method="POST" action="<?php echo base_url() . 'auth/update_profile' ?>" enctype="multipart/form-data">
                                 <div class="card rounded-0">
                                     <div class="card-header bg-main" id="headingOne">
                                         <h5 class="mb-0">
@@ -110,9 +147,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
-                                                        <span class="icon">Tanggal Lahir</span>
+                                                        <span class="icon">Tanggal Lahir *tanggal/bulan/tahun</span>
                                                         <div class="form-group">
-                                                            <input name="date_birth" type="text" class="has-icon datepicker-here " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->date_birth), "d/m/Y") ?>">
+                                                            <input name="date_birth" type="text" class="has-icon hasdatepicker " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->date_birth), "d-m-Y") ?>">
                                                             <span class="icon"><i class="fal fa-calendar-alt"></i></span>
                                                         </div>
                                                     </div>
@@ -136,7 +173,7 @@
                                                     <div class="col-lg-12">
                                                         <span class="icon">Email</span>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="...." name="email" value="<?php echo $datamember->email; ?>">
+                                                            <input type="text" placeholder="...." name="email" value="<?php echo $datamember->email; ?> " readonly>
                                                             <span class="icon"><i class="fal fa-envelope"></i></span>
                                                         </div>
                                                     </div>
@@ -206,7 +243,7 @@
                                                     <div class="col-lg-6">
                                                         <span class="icon">Berlaku sampai</span>
                                                         <div class="form-group">
-                                                            <input name="serkom_exp" type="text" class="has-icon datepicker-here " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->serkom_exp), "d/m/Y") ?>">
+                                                            <input name="serkom_exp" type="text" class="has-icon hasdatepicker " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->serkom_exp), "d-m-Y") ?>">
                                                             <span class="icon"><i class="fal fa-calendar"></i></span>
                                                         </div>
                                                     </div>
@@ -225,7 +262,7 @@
                                                     <div class="col-lg-6">
                                                         <span class="icon">Berlaku sampai</span>
                                                         <div class="form-group">
-                                                            <input name="str_exp" type="text" class="has-icon datepicker-here " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->str_exp), "d/m/Y") ?>">
+                                                            <input name="str_exp" type="text" class="has-icon hasdatepicker " data-language="en" placeholder="Select Date" id="" value="<?php echo date_format(date_create($datamember->str_exp), "d-m-Y") ?>">
                                                             <span class="icon"><i class="fal fa-calendar"></i></span>
                                                         </div>
                                                     </div>
@@ -546,47 +583,122 @@
                                     <div id="kegiatan" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="card-body p-0">
                                             <div class="contact-form">
+                                                <!-- <?php print_r($datacertificate); ?> -->
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nama Kegiatan</th>
-                                                            <th scope="col">Tipe Kegiatan</th>
                                                             <th scope="col">Nomor Barcode Sertifikat</th>
+                                                            <th scope="col">SKP</th>
                                                             <th scope="col">Sertifikat Kegiatan</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php 
+                                                        $no=1;
+                                                        foreach($datacertificate as $cert){ ?>                                                        
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>JOM 2022</td>
-                                                            <td>Seminar</td>
-                                                            <td>562789153499</td>
-                                                            <td><a href="#">Download Certificate</a></td>
+                                                            <th scope="row"><?php echo $no++ ?></th>
+                                                            <td><?php echo $cert->kegiatan; ?> </td>
+                                                            <td><?php echo $cert->no_barcode; ?> </td>
+                                                            <td><?php echo $cert->skp; ?> </td>
+                                                            <td><a href="<?php echo $cert->file; ?>" target="_blank">Download Certificate</a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>JOM 2022</td>
-                                                            <td>Seminar</td>
-                                                            <td>562789153499</td>
-                                                            <td><a href="#">Download Certificate</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>JOM 2022</td>
-                                                            <td>Seminar</td>
-                                                            <td>562789153499</td>
-                                                            <td><a href="#">Download Certificate</a></td>
-                                                        </tr>
+                                                        <?php 
+                                                        }
+                                                         ?>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card rounded-0">
+                                    <div class="card-header bg-main" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <a class="collapsed font-weight-bold text-light" data-toggle="collapse" data-target="#iuran" role="button" aria-expanded="false" aria-controls="iuran">
+                                                Iuran Keanggotaan
+                                            </a><br>
+                                        </h5>
+                                    </div>
+                                    <div id="iuran" class="collapse multi-collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body p-0">
+                                            <div class="contact-form">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <span class="idd">Status pembayaran iuran:<br><br>
+                                                            <?php
+                                                            $status = $datamember->status;
+                                                            $tagihan = $datamember->tagihan;
+                                                            if ($status == 0) {
+                                                                echo "<a href='#' class='btn btn-danger'>BELUM LUNAS</a>";
+                                                            } else {
+                                                                echo "<a href='#' class='btn btn-success'>LUNAS</a>";
+                                                            }
+                                                            ?>
+                                                        </span><br><br>
+                                                        <?php
+                                                        if ($tagihan == 0) {
+                                                        } else { ?>
+                                                            <span class="idd">Hingga 2025 Total Tagihan:
+                                                                <br><br>
+                                                                <?php echo rupiah($tagihan); ?>
+                                                            </span>
+                                                        <?php } ?>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-9">
+                                                        <span class="icon font-weight-bold">
+                                                            Upload Bukti Bayar
+                                                        </span><br><br>
+                                                        <p>Pembayaran iuran keanggotaan dapat ditransfer melalui:
+                                                            <br>
+                                                            rekening BCA 2063-7335-98
+                                                            <br>
+                                                            a/n Ikorti Komda Jaya
+                                                            <br><br>
+                                                            Silahkan Upload Bukti Bayar
+                                                            <br>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <span class="icon">
+                                                            <?php
+                                                            $foto = 'uploads/payment_proof/' . $datamember->bukti_bayar;
+                                                            if (!empty($datamember->bukti_bayar)) {
+                                                                $bukti_bayar = base_url() . 'uploads/payment_proof/' . $datamember->bukti_bayar;
+                                                            } else {
+                                                                $bukti_bayar = base_url() . 'uploads/foto/default.png';
+                                                            }
+                                                            ?>
+                                                            <img class="w-100 p-2 rounded-0 border border-white" src="<?php echo $bukti_bayar; ?>" alt="">
+                                                        </span>
+                                                        <div class="form-group">
+                                                            <input type="file" placeholder="...." class="w-100" name="bukti_bayar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <p>
+                                                            Contact persons:<br>
+                                                            <i>drg. Caterine, Sp.Ort (081311009720)</i><br>
+                                                            <i>drg. Citra Lestari, Sp.Ort (085921536980)</i><br>
+                                                            <i>drg. Agnes Sukandar, Sp.Ort (0811890329)<i><br>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-12 text-left py-4 my-4">
                                     <input type="hidden" name="id" value="<?php echo $datamember->id ?>">
-                                    <input class="btn btn-danger rounded-0 " type="submit" value="Save">
+                                    <input class="btn btn-danger rounded-0 " type="submit" value="Simpan Perubahan">
                                 </div>
                             </form>
                         </div>
@@ -598,9 +710,9 @@
     </div>
 </div>
 
-<?php 
+<?php
 
-if (!empty($datamember->latlong1)){
+if (!empty($datamember->latlong1)) {
     $latLongArray1 = explode(',', $datamember->latlong1);
     $latitude1 = trim($latLongArray1[0]); // Get the first element (latitude)
     $longitude1 = trim($latLongArray1[1]); // Get the second element (longitude)
@@ -609,7 +721,7 @@ if (!empty($datamember->latlong1)){
     $longitude1 = '116.543652';
 }
 
-if (!empty($datamember->latlong2)){
+if (!empty($datamember->latlong2)) {
     $latLongArray2 = explode(',', $datamember->latlong2);
     $latitude2 = trim($latLongArray2[0]); // Get the first element (latitude)
     $longitude2 = trim($latLongArray2[1]); // Get the second element (longitude)
@@ -618,7 +730,7 @@ if (!empty($datamember->latlong2)){
     $longitude2 = '116.543652';
 }
 
-if (!empty($datamember->latlong3)){
+if (!empty($datamember->latlong3)) {
     $latLongArray3 = explode(',', $datamember->latlong3);
     $latitude3 = trim($latLongArray3[0]); // Get the first element (latitude)
     $longitude3 = trim($latLongArray3[1]); // Get the second element (longitude)
@@ -650,7 +762,7 @@ if (!empty($datamember->latlong3)){
         google.maps.event.addListener(marker1, 'dragend', function(event) {
             document.getElementById('map1_lat').value = event.latLng.lat();
             document.getElementById('map1_lng').value = event.latLng.lng();
-            document.getElementById('latlong1').value = event.latLng.lat()+', '+event.latLng.lng();
+            document.getElementById('latlong1').value = event.latLng.lat() + ', ' + event.latLng.lng();
         });
 
         // Map 2
@@ -672,7 +784,7 @@ if (!empty($datamember->latlong3)){
         google.maps.event.addListener(marker2, 'dragend', function(event) {
             document.getElementById('map2_lat').value = event.latLng.lat();
             document.getElementById('map2_lng').value = event.latLng.lng();
-            document.getElementById('latlong2').value = event.latLng.lat()+', '+event.latLng.lng();
+            document.getElementById('latlong2').value = event.latLng.lat() + ', ' + event.latLng.lng();
         });
 
         // Map 3
@@ -694,7 +806,7 @@ if (!empty($datamember->latlong3)){
         google.maps.event.addListener(marker3, 'dragend', function(event) {
             document.getElementById('map3_lat').value = event.latLng.lat();
             document.getElementById('map3_lng').value = event.latLng.lng();
-            document.getElementById('latlong3').value = event.latLng.lat()+', '+event.latLng.lng();
+            document.getElementById('latlong3').value = event.latLng.lat() + ', ' + event.latLng.lng();
         });
     }
 </script>

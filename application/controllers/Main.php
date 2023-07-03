@@ -42,12 +42,12 @@ class Main extends CI_Controller {
 		$this->db->limit(6);
 
 		$data['blog'] = $this->db->get(); 
-
-		if ($this->session->userdata('member')) {
-			$this->load->view('template',$data);
-			// $this->load->view('main',$data);
-		} else {
-			redirect(base_url().'member');
-		}		
+		$this->load->view('template',$data);
+		// if ($this->session->userdata('member')) {
+		// 	$this->load->view('template',$data);
+		// 	// $this->load->view('main',$data);
+		// } else {
+		// 	redirect(base_url().'member');
+		// }		
 	}
 }

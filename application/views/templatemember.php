@@ -68,6 +68,15 @@
   <script src="<?php echo base_url(); ?>assets/js/waypoint.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
   <script>
+        jQuery(document).ready(function() {
+      var $j = jQuery.noConflict();
+      $j(".hasdatepicker").datepicker({
+        autoclose: true,
+        dateFormat: "dd-mm-yy"
+      });
+    });
+
+    
   $('#cbpraktek,#cbpraktek2,#cbpraktek3').autocomplete({
       
       source: function(request, response) {

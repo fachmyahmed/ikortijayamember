@@ -53,7 +53,6 @@ class Blog extends CI_Controller
 		// echo $config['per_page']."<br>";
 		// echo $this->db->last_query();
 		// die();
-
 		$this->load->view('template', $data);
 	}
 
